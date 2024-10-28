@@ -27,20 +27,50 @@ class _SelectProject extends State<SelectProject> {
           icon: Icon(Icons.settings),
         )
       ],
+      bottom: TabBar(tabs: [
+        Tab(
+          icon: Icon(
+            Icons.list,
+            color: Colors.white,
+          ),
+          child: Text(
+            "project",
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ),
+        Tab(
+          icon: Icon(
+            Icons.favorite,
+            color: Colors.white,
+          ),
+          child: Text(
+            "favorite",
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        )
+      ]),
     );
 
-    final mainCol = Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text("test"),
-      ],
+    final tabs = DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: appBar,
+        body: TabBarView(
+          children: [
+            Center(
+              child: Text("cloud"),
+            ),
+            Center(
+              child: Text("moblie"),
+            )
+          ],
+        ),
+      ),
     );
-
-    final scaffold = Scaffold(
-      appBar: appBar,
-      body: mainCol,
-    );
-
-    return scaffold;
+    return tabs;
   }
 }
