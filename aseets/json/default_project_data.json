@@ -1,0 +1,74 @@
+[
+    {
+        "project_id": 0,
+        "project_name": "前進",
+        "program": [
+            {
+                "action": "forward",
+                "color": "0xff80deea"
+            },
+            {
+                "action": "forward",
+                "color": "0xff80deea"
+            },
+            {
+                "action": "forward",
+                "color": "0xff80deea"
+            }
+        ]
+    },
+    {
+        "project_id": 1,
+        "project_name": "後退",
+        "program": [
+            {
+                "action": "retreat",
+                "color": "0xff80deea"
+            },
+            {
+                "action": "retreat",
+                "color": "0xff80deea"
+            },
+            {
+                "action": "retreat",
+                "color": "0xff80deea"
+            }
+        ]
+    },
+    {
+        "project_id": 1,
+        "project_name": "右折",
+        "program": [
+            {
+                "action": "right_turn",
+                "color": "0xff80deea"
+            },
+            {
+                "action": "right_turn",
+                "color": "0xff80deea"
+            },
+            {
+                "action": "right_turn",
+                "color": "0xff80deea"
+            }
+        ]
+    },
+    {
+        "project_id": 1,
+        "project_name": "左折",
+        "program": [
+            {
+                "action": "left_turn",
+                "color": "0xff80deea"
+            },
+            {
+                "action": "left_turn",
+                "color": "0xff80deea"
+            },
+            {
+                "action": "left_turn",
+                "color": "0xff80deea"
+            }
+        ]
+    }
+]
