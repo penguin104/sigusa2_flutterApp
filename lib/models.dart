@@ -26,7 +26,7 @@ class ProjectModel {
   ProjectModel.fromJson(Map<String, dynamic> json)
       : project_id = json["project_id"],
         project_name = json["project_name"],
-        program = (jsonDecode(json["program"]) as List)
+        program = (json["program"] as List)
             .map((e) => ProgramModel.fromJson(e))
             .toList();
 }
