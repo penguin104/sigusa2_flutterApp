@@ -130,7 +130,6 @@ class _ProjectListsState extends State<ProjectLists> {
           itemCount: projectList.length,
           itemBuilder: (context, index) {
             final item = projectList[index];
-
             return ProjectListItem(project: item);
           }),
     );
@@ -149,11 +148,13 @@ class ProjectListItem extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all(8),
       child: Container(
+          height: 80,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(5)),
             color: Colors.indigo,
           ),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
                 child: Row(
@@ -163,7 +164,7 @@ class ProjectListItem extends StatelessWidget {
                         project.project_name,
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 25,
                           color: Colors.white,
                         ),
                       ),
