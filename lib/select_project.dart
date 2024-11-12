@@ -40,6 +40,7 @@ class _SelectProject extends State<SelectProject> {
   @override
   Widget build(BuildContext context) {
     final appBar = AppBar(
+      automaticallyImplyLeading: false,
       title: Text(
         "SIGUSA2",
         style: TextStyle(

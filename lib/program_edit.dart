@@ -15,6 +15,15 @@ class _ProgramEditState extends State<ProgramEdit> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.indigo,
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/selectProject');
+            },
+            icon: Icon(
+              Icons.arrow_left,
+              color: Colors.white,
+              size: 40,
+            )),
         title: Text(
           selectProject.project_name,
           // "test",
@@ -22,6 +31,14 @@ class _ProgramEditState extends State<ProgramEdit> {
             color: Colors.white,
           ),
         ),
+      ),
+      body: Container(
+        child: ListView.builder(
+            itemCount: selectProject.program.length,
+            itemBuilder: (context, index) {
+              final action = selectProject.program[index];
+              return Text(action.action);//TODO プログラムセルウィジェット実装する
+            }),
       ),
     );
   }
