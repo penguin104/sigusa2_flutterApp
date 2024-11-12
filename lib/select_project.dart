@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:sigusa/models.dart';
+import 'main.dart';
 
 //TODO favorite tab
 
 var projectList = [];
+var selectProject;
 
 class SelectProject extends StatefulWidget {
   const SelectProject({super.key});
@@ -130,7 +132,10 @@ class _ProjectListsState extends State<ProjectLists> {
           itemCount: projectList.length,
           itemBuilder: (context, index) {
             final item = projectList[index];
-            return ProjectListItem(project: item);
+            return ProjectListItem(
+              project: item,
+              index: index,
+            );
           }),
     );
   }
@@ -138,60 +143,68 @@ class _ProjectListsState extends State<ProjectLists> {
 
 class ProjectListItem extends StatelessWidget {
   ProjectModel project;
+  int index;
   ProjectListItem({
     super.key,
     required this.project,
+    required this.index,
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.all(8),
-      child: Container(
-          height: 80,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(5)),
-            color: Colors.indigo,
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Text(
-                        project.project_name,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 25,
+      child: InkWell(
+        onTap: () {
+          selectProject = projectList[index];
+          Navigator.pushNamed(context, '/programEdit');
+        },
+        child: Container(
+            height: 80,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(5)),
+              color: Colors.indigo,
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          project.project_name,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 25,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          // TODO 編集画面に繊維
+                        },
+                        icon: Icon(
+                          Icons.edit,
                           color: Colors.white,
                         ),
                       ),
-                    ),
-                    IconButton(
-                      onPressed: () {
-                        // TODO 編集画面に繊維
-                      },
-                      icon: Icon(
-                        Icons.edit,
-                        color: Colors.white,
+                      IconButton(
+                        onPressed: () {
+                          // TODO このプロジェクトを削除 ダイアログを表示
+                        },
+                        icon: Icon(
+                          Icons.delete,
+                          color: Colors.white,
+                        ),
                       ),
-                    ),
-                    IconButton(
-                      onPressed: () {
-                        // TODO このプロジェクトを削除 ダイアログを表示
-                      },
-                      icon: Icon(
-                        Icons.delete,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            ],
-          )),
+              ],
+            )),
+      ),
     );
   }
 }
