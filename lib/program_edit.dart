@@ -38,7 +38,8 @@ class _ProgramEditState extends State<ProgramEdit> {
             itemCount: selectProject.program.length,
             itemBuilder: (context, index) {
               final action = selectProject.program[index];
-              return Text(action.action);//TODO プログラムセルウィジェット実装する
+              return ProgramAction(
+                  action: action, index: index); //TODO プログラムセルウィジェット実装する
             }),
       ),
     );
@@ -58,18 +59,17 @@ class ProgramAction extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final programAction = Container(
-      color: Color(),
+      color: Color(int.parse(action.color)),
       child: Text(
         action.action,
         style: TextStyle(
           fontSize: 40,
           color: Colors.white,
         ),
-        ),
+      ),
     );
 
-    return const Placeholder();
+    return programAction;
   }
 }
