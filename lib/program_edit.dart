@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sigusa/models.dart';
 import 'main.dart';
 import 'select_project.dart';
 
@@ -41,5 +42,34 @@ class _ProgramEditState extends State<ProgramEdit> {
             }),
       ),
     );
+  }
+}
+
+class ProgramAction extends StatelessWidget {
+  ProgramModel action;
+  int index;
+  //TODO if文とかと対応させる
+
+  ProgramAction({
+    super.key,
+    required this.action,
+    required this.index,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+
+    final programAction = Container(
+      color: Color(),
+      child: Text(
+        action.action,
+        style: TextStyle(
+          fontSize: 40,
+          color: Colors.white,
+        ),
+        ),
+    );
+
+    return const Placeholder();
   }
 }
