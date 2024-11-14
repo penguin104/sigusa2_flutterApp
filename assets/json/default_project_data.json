@@ -5,15 +5,15 @@
         "program": [
             {
                 "action": "forward",
-                "color": "0xff80deea"
+                "color": "0xff0078FF"
             },
             {
                 "action": "forward",
-                "color": "0xff80deea"
+                "color": "0xff0078FF"
             },
             {
                 "action": "forward",
-                "color": "0xff80deea"
+                "color": "0xff0078FF"
             }
         ]
     },
@@ -23,15 +23,15 @@
         "program": [
             {
                 "action": "retreat",
-                "color": "0xff80deea"
+                "color": "0xffFF4359"
             },
             {
                 "action": "retreat",
-                "color": "0xff80deea"
+                "color": "0xffFF4359"
             },
             {
                 "action": "retreat",
-                "color": "0xff80deea"
+                "color": "0xffFF4359"
             }
         ]
     },
@@ -41,15 +41,15 @@
         "program": [
             {
                 "action": "right_turn",
-                "color": "0xff80deea"
+                "color": "0xff00ECC2"
             },
             {
                 "action": "right_turn",
-                "color": "0xff80deea"
+                "color": "0xff00ECC2"
             },
             {
                 "action": "right_turn",
-                "color": "0xff80deea"
+                "color": "0xff00ECC2"
             }
         ]
     },
@@ -59,15 +59,15 @@
         "program": [
             {
                 "action": "left_turn",
-                "color": "0xff80deea"
+                "color": "0xffFFD75F"
             },
             {
                 "action": "left_turn",
-                "color": "0xff80deea"
+                "color": "0xffFFD75F"
             },
             {
                 "action": "left_turn",
-                "color": "0xff80deea"
+                "color": "0xffFFD75F"
             }
         ]
     }

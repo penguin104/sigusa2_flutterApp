@@ -8,6 +8,14 @@ import 'main.dart';
 
 //TODO favorite tab
 
+Map<String, dynamic> colorSet = {
+  'first': Color.fromRGBO(44, 119, 132, 1),
+  'second': Color.fromRGBO(234, 153, 58, 1),
+  'third': Color.fromRGBO(228, 221, 179, 1),
+  'fourth': Color.fromRGBO(143, 207, 193, 1),
+  'fifth': Color.fromRGBO(169, 70, 29, 1),
+};
+
 var projectList = [];
 var selectProject;
 
@@ -47,38 +55,41 @@ class _SelectProject extends State<SelectProject> {
           fontSize: 30,
         ),
       ),
-      backgroundColor: Colors.indigo,
-      foregroundColor: Colors.white,
+      backgroundColor: colorSet['first'],
+      foregroundColor: colorSet['third'],
       actions: [
         IconButton(
           onPressed: () {
             print("press setting");
           },
-          icon: Icon(Icons.settings),
+          icon: Icon(
+            Icons.settings,
+            color: colorSet['second'],
+          ),
         )
       ],
-      bottom: TabBar(indicatorColor: Colors.amber, tabs: [
+      bottom: TabBar(indicatorColor: colorSet['second'], tabs: [
         Tab(
           icon: Icon(
             Icons.list,
-            color: Colors.white,
+            color: colorSet['third'],
           ),
           child: Text(
             "project",
             style: TextStyle(
-              color: Colors.white,
+              color: colorSet['third'],
             ),
           ),
         ),
         Tab(
           icon: Icon(
             Icons.favorite,
-            color: Colors.white,
+            color: colorSet['third'],
           ),
           child: Text(
             "favorite",
             style: TextStyle(
-              color: Colors.white,
+              color: colorSet['third'],
             ),
           ),
         )
@@ -88,6 +99,7 @@ class _SelectProject extends State<SelectProject> {
     final tabs = DefaultTabController(
       length: 2,
       child: Scaffold(
+        backgroundColor: colorSet['fourth'],
         appBar: appBar,
         body: TabBarView(
           children: [ProjectLists(), FavoriteProjects()],
@@ -164,7 +176,7 @@ class ProjectListItem extends StatelessWidget {
             height: 80,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(5)),
-              color: Colors.indigo,
+              color: colorSet['third'],
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -178,7 +190,7 @@ class ProjectListItem extends StatelessWidget {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 25,
-                            color: Colors.white,
+                            color: colorSet['first'],
                           ),
                         ),
                       ),
@@ -188,7 +200,7 @@ class ProjectListItem extends StatelessWidget {
                         },
                         icon: Icon(
                           Icons.edit,
-                          color: Colors.white,
+                          color: colorSet['fourth'],
                         ),
                       ),
                       IconButton(
@@ -197,7 +209,7 @@ class ProjectListItem extends StatelessWidget {
                         },
                         icon: Icon(
                           Icons.delete,
-                          color: Colors.white,
+                          color: colorSet['fourth'],
                         ),
                       ),
                     ],

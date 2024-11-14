@@ -14,33 +14,35 @@ class _ProgramEditState extends State<ProgramEdit> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: colorSet['fourth'],
       appBar: AppBar(
-        backgroundColor: Colors.indigo,
+        backgroundColor: colorSet['first'],
         leading: IconButton(
             onPressed: () {
               Navigator.pushNamed(context, '/selectProject');
             },
             icon: Icon(
               Icons.arrow_left,
-              color: Colors.white,
+              color: colorSet['third'],
               size: 40,
             )),
         title: Text(
           selectProject.project_name,
           // "test",
           style: TextStyle(
-            color: Colors.white,
+            color: colorSet['third'],
           ),
         ),
       ),
       body: Container(
         child: ListView.builder(
-            itemCount: selectProject.program.length,
-            itemBuilder: (context, index) {
-              final action = selectProject.program[index];
-              return ProgramAction(
-                  action: action, index: index); //TODO プログラムセルウィジェット実装する
-            }),
+          itemCount: selectProject.program.length,
+          itemBuilder: (context, index) {
+            final action = selectProject.program[index];
+            return ProgramAction(
+                action: action, index: index); //TODO プログラムセルウィジェット実装する
+          },
+        ),
       ),
     );
   }
@@ -65,7 +67,7 @@ class ProgramAction extends StatelessWidget {
         action.action,
         style: TextStyle(
           fontSize: 40,
-          color: Colors.white,
+          color: colorSet['third'],
         ),
       ),
     );
