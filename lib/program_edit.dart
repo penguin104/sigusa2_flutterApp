@@ -35,12 +35,33 @@ class _ProgramEditState extends State<ProgramEdit> {
         ),
       ),
       body: Container(
-        child: ListView.builder(
+        child: ReorderableListView.builder(
           itemCount: selectProject.program.length,
           itemBuilder: (context, index) {
             final action = selectProject.program[index];
-            return ProgramAction(
-                action: action, index: index); //TODO プログラムセルウィジェット実装する
+            final returnRow = Row(
+              children: [
+                Expanded(child: ProgramAction(action: action, index: index)),
+              ],
+            ); //TODO プログラムセルウィジェット実装する
+
+            return ListTile(
+              key: Key('$index'), //【注意①】keyが必須になります
+              title: returnRow,
+            );
+          },
+          onReorder: (oldIndex, newIndex) {
+            setState(() {
+              // リストからoldIndexのItemを削除＆取得します
+              final item = selectProject.program.removeAt(oldIndex);
+              // すると、oldIndex以降のIndexが1つズレるため、
+              // oldIndexよりnewIndexが大きい場合はnewIndexに-1する必要があります
+              if (newIndex > oldIndex) {
+                newIndex -= 1;
+              }
+              // 先ほど削除した際に取得したItemをnewIndexに挿入します
+              selectProject.program.insert(newIndex, item);
+            });
           },
         ),
       ),
