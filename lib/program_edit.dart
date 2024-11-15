@@ -83,11 +83,14 @@ class ProgramAction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final programAction = Container(
-      color: Color(int.parse(action.color)),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: Color(int.parse(action.color)),
+      ),
       child: Text(
         action.action,
         style: TextStyle(
-          fontSize: 40,
+          fontSize: 30,
           color: colorSet['third'],
         ),
       ),
