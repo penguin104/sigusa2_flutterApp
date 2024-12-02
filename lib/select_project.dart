@@ -64,7 +64,7 @@ class _SelectProject extends State<SelectProject> {
           },
           icon: Icon(
             Icons.settings,
-            color: colorSet['second'],
+            color: colorSet['third'],
           ),
         )
       ],

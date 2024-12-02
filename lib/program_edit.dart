@@ -45,9 +45,20 @@ class _ProgramEditState extends State<ProgramEdit> {
               ],
             ); //TODO プログラムセルウィジェット実装する
 
-            return ListTile(
-              key: Key('$index'), //【注意①】keyが必須になります
-              title: returnRow,
+            return Dismissible(
+              key: Key('$index'),
+              child: ListTile(
+                key: Key('$index'), //【注意①】keyが必須になります
+                title: returnRow,
+              ),
+              onDismissed: (DismissDirection direction) {
+                setState(() {
+                  action.removeAt(index);
+                });
+              },
+              background: Container(
+                color: Colors.red,
+              ),
             );
           },
           onReorder: (oldIndex, newIndex) {
